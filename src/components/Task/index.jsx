@@ -5,9 +5,10 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 
 export function Task({ task, onComplete, onDelete, onEdit }) {
+
     const [editedTitle, setEditedTitle] = useState(task.title);
     const [isEditing, setIsEditing] = useState(false);
-
+    
     const handleEdit = () => {
         setIsEditing(true);
     };

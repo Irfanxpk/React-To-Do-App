@@ -6,6 +6,8 @@ export function Tasks({ tasks, onComplete, onDelete ,onEdit }) {
     let taskQuantity = tasks.length
     let completedTask = tasks.filter(task => task.isComplete).length
 
+
+
     const sortedTasks = tasks.slice().sort((a, b) => {
         if (a.isComplete && !b.isComplete) return 1;
         if (!a.isComplete && b.isComplete) return -1;

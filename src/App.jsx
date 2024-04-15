@@ -18,6 +18,7 @@ function App() {
     }
   }
 
+
   useEffect(() => {
     loadSavedTask();
   }, [])
@@ -69,7 +70,7 @@ function App() {
 
   return (
     <>
-      <Header onAddTask={addTask} />
+      <Header onAddTask={addTask} onUnique={tasks} />
 
       <Tasks tasks={tasks}
         onComplete={toggleTaskCompleteById}

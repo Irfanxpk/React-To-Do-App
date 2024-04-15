@@ -8,7 +8,7 @@ import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal)
 
 
-export function Header({ onAddTask }) {
+export function Header({ onAddTask , onUnique}) {
     const [title, setTitle] = useState('')
     function handleSubmit(e) {
         e.preventDefault();
@@ -23,10 +23,24 @@ export function Header({ onAddTask }) {
                     popup: 'swal2-mobile',
                 }
             });
+            setTitle('')
+            return;
+        }else if (onUnique.some(obj => Object.values(obj).includes(title.trim())))
+        {
+            MySwal.fire({
+                title: 'Already added',
+                text: 'Please enter somthing new',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'swal2-mobile',
+                }
+            });
             return;
         }
 
-        onAddTask(title);
+
+        onAddTask(title.trim());
         setTitle('');
     }
 
